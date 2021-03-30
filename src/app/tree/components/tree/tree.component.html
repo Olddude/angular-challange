@@ -1,0 +1,16 @@
+<header>
+  <h1>Arbitrary JSON tree form</h1>
+  <ul>
+    <li>
+      <label>loading data from</label>
+      <input id="url" type="url" [value]="url$ | async" readonly disabled>
+    </li>
+  </ul>
+</header>
+<main>
+  <ng-container *ngIf="tree$ | async as tree">
+    <section>
+      <app-tree-node id="ui" [model]="tree"></app-tree-node>
+    </section>
+  </ng-container>
+</main>

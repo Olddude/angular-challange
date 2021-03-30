@@ -1,0 +1,35 @@
+<ng-container *ngIf="!model?.children">
+  <section class="form-row">
+    <label class="label">{{model?.label}}</label>
+    <ng-container [ngSwitch]="valueType(model?.value)">
+      <input class="value"
+             *ngSwitchCase="'number'"
+             type="number"
+             [value]="model?.value"
+             readonly
+             disabled>
+      <input class="value"
+             *ngSwitchCase="'boolean'"
+             type="checkbox"
+             [checked]="model?.value"
+             readonly
+             disabled>
+      <input class="value"
+             *ngSwitchDefault
+             type="text"
+             [value]="model?.value"
+             readonly
+             disabled>
+    </ng-container>
+  </section>
+</ng-container>
+<ng-container *ngIf="model?.children && model?.children.length > 0">
+  <section class="form-row">
+    <label class="label">{{model?.label}}</label>
+    <div class="children">
+      <app-tree-node class="child"
+                    *ngFor="let child of model?.children"
+                    [model]="child"></app-tree-node>
+    </div>
+  </section>
+</ng-container>
