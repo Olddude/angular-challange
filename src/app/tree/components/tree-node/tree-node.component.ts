@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TreeNode } from '../../models/tree-node';
 
 @Component({
@@ -7,7 +7,7 @@ import { TreeNode } from '../../models/tree-node';
     <ng-container *ngIf="!model?.children">
       <section class="form-row">
         <label class="label">{{model?.label}}</label>
-        <ng-container [ngSwitch]="valueType(model?.value)">
+        <ng-container [ngSwitch]="model?.valueType">
           <input *ngSwitchCase="'number'"
                 class="value" type="number" [value]="model?.value"
                 readonly disabled>
@@ -33,11 +33,5 @@ import { TreeNode } from '../../models/tree-node';
   `
 })
 export class TreeNodeComponent {
-
   @Input() model: TreeNode;
-
-  valueType(value: any): string {
-    return typeof value;
-  }
-
 }

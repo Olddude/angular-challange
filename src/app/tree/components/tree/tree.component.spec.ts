@@ -17,21 +17,15 @@ describe('TreeComponent', () => {
       providers: [
         {
           provide: UrlService,
-          useFactory: () => ({
-            url: () => of('')
-          })
+          useFactory: () => ({ url: () => of('') })
         },
         {
           provide: FetchService,
-          useFactory: () => ({
-            fetch: () => of({})
-          })
+          useFactory: () => ({ fetch: () => of({}) })
         },
         {
           provide: TreeService,
-          useFactory: () => ({
-            tree: () => ({})
-          })
+          useFactory: () => ({ tree: () => ({}) })
         }
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
