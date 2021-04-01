@@ -9,10 +9,16 @@
     li {
       display: flex;
       flex-direction: row;
-      input {
-        margin-left: .5rem;
-        flex: 1;
-      }
+      justify-content: space-evenly;
+    }
+    li > label {
+      flex: .2;
+    }
+    li > input {
+      flex: .8;
+    }
+    li:not(:last-child) {
+      margin-bottom: .2rem;
     }
   }
 }
@@ -27,15 +33,5 @@
       width: 100%;
       flex: 1;
     }
-  }
-}
-
-:host {
-  #data {
-    width: 100%;
-    min-height: 50vh;
-    outline: none;
-    resize: none;
-    border: 1px solid grey;
   }
 }

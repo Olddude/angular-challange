@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TreeService } from '../../services/tree.service';
 import { map, mergeMap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-tree',
@@ -8,6 +9,8 @@ import { map, mergeMap } from 'rxjs/operators';
   styleUrls: ['./tree.component.scss']
 })
 export class TreeComponent {
+
+  source = environment.source;
 
   url$ = this.service.url();
 

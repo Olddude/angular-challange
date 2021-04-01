@@ -1,8 +1,12 @@
 <header>
-  <h1>Arbitrary JSON tree form</h1>
+  <h1>Arbitrary JSON User Interface</h1>
   <ul>
     <li>
-      <label>loading data from</label>
+      <label>src</label>
+      <input id="source" type="url" [value]="source" readonly disabled>
+    </li>
+    <li>
+      <label>data</label>
       <input id="url" type="url" [value]="url$ | async" readonly disabled>
     </li>
   </ul>

@@ -2,24 +2,15 @@
   <section class="form-row">
     <label class="label">{{model?.label}}</label>
     <ng-container [ngSwitch]="valueType(model?.value)">
-      <input class="value"
-             *ngSwitchCase="'number'"
-             type="number"
-             [value]="model?.value"
-             readonly
-             disabled>
-      <input class="value"
-             *ngSwitchCase="'boolean'"
-             type="checkbox"
-             [checked]="model?.value"
-             readonly
-             disabled>
-      <input class="value"
-             *ngSwitchDefault
-             type="text"
-             [value]="model?.value"
-             readonly
-             disabled>
+      <input *ngSwitchCase="'number'"
+             class="value" type="number" [value]="model?.value"
+             readonly disabled>
+      <input *ngSwitchCase="'boolean'"
+              class="value" type="checkbox" [checked]="model?.value"
+              readonly disabled>
+      <input *ngSwitchDefault
+             class="value" type="text" [value]="model?.value"
+             readonly disabled>
     </ng-container>
   </section>
 </ng-container>
