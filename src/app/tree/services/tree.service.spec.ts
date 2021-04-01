@@ -70,8 +70,19 @@ describe('TreeService', () => {
     service.fetch(randomUrl).subscribe(onNext);
   });
 
-  it('should map json to tree', async () => {
-    const input = await require('src/assets/example.json');
+  it('should map json to tree', () => {
+    const input = {
+      a: {
+        b: {
+          c: {
+            d: 'e'
+          },
+          f: [12, 20, 30],
+          g: []
+        },
+        h: 'foobar'
+      }
+    };
     const result = service.tree(input, 'root');
     expect(result).toBeTruthy();
   });

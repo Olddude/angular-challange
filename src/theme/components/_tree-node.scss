@@ -1,4 +1,6 @@
-:host {
+@import '../variables';
+
+app-tree-node {
   display: flex;
   flex-direction: column;
   width: 100%;;
@@ -9,23 +11,23 @@
     flex-direction: column;
   }
   .form-row {
-    padding: .125rem;
+    padding: $margin;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     label {
-      min-width: 2rem;
+      min-width: $labelMinWidth;
+    }
+    label::after {
+      content: ':';
     }
     input {
-      margin-left: .25rem;
+      margin-left: $margin;
     }
   }
   .form-row:not(:last-child) {
-    margin-bottom: 1rem;
+    margin-bottom: $margin;
   }
-}
-
-:host {
   input {
     flex: 1;
   }
