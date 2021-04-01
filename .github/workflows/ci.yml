@@ -20,6 +20,7 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: '14.15'
+      - run: npm audit
       - run: npm install
       - run: npm run lint
       - run: npm run test -- --code-coverage --browsers ChromeHeadless --watch=false
