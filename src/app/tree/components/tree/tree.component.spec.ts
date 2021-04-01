@@ -3,6 +3,7 @@ import { of } from 'rxjs';
 
 import { TreeComponent } from './tree.component';
 import { TreeService } from '../../services/tree.service';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('TreeComponent', () => {
   let component: TreeComponent;
@@ -20,7 +21,8 @@ describe('TreeComponent', () => {
             url: () => of('')
           })
         }
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });

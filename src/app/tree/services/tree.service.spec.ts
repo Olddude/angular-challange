@@ -94,7 +94,6 @@ describe('TreeService', () => {
   ].forEach(input => {
     it(`should get children for ${JSON.stringify(input)}`, async () => {
       const result = service.children(input);
-      console.log(`input: ${input}, result: ${result}`);
       expect(result).toBeTruthy();
     });
   });
