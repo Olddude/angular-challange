@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { TreeService } from '../../services/tree.service';
 import { map, mergeMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { FetchService } from '../../services/fetch/fetch.service';
+import { TreeService } from '../../services/tree/tree.service';
+import { UrlService } from '../../services/url/url.service';
 
 @Component({
   selector: 'app-tree',
@@ -28,18 +30,20 @@ export class TreeComponent {
 
   source = environment.source;
 
-  url$ = this.service.url();
+  url$ = this.urlService.url();
 
   data$ = this.url$.pipe(
-    mergeMap(url => this.service.fetch(url))
+    mergeMap(url => this.fetchService.fetch(url))
   );
 
   tree$ = this.data$.pipe(
-    map(data => this.service.tree(data))
+    map(data => this.treeService.tree(data))
   );
 
   constructor(
-    private readonly service: TreeService
+    private readonly urlService: UrlService,
+    private readonly fetchService: FetchService,
+    private readonly treeService: TreeService
   ) { }
 
 }
